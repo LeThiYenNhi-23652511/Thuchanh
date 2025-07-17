@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .error{color:red;}
+    .success{color:green;}
+</style>
+<body>
+    <h3>Nhập một số bất kỳ:</h3>
+    <input type="text" id="numberInput" placeholder="Nhập số...">
+    <p id="checknumber"></p>
+    <h3>Nhập số điện thoại:</h3>
+    <input type="text" id="phoneInput" placeholder="Nhập số điện thoại...">
+    <p id="checkphone"></p>
+    <script>
+        function checkBoth() {
+          var number = document.getElementById("numberInput").value;
+          var phone = document.getElementById("phoneInput").value;
+          var checknum = document.getElementById("checknumber");
+          var checkphone = document.getElementById("checkphone");
+        if (number === "") {
+          checknumber.innerText = "Vui lòng nhập số";
+          checknumber.className = "error";
+        } else if (isNaN(number)) {
+          checknumber.innerText = "Không phải số";
+          checknumber.className = "error";
+        } else {
+           checknumber.innerText = "Hợp lệ";
+          checknumber.className = "success";
+        }
+        if (phone === "") {
+          checkphone.innerText = "Vui lòng nhập số";
+          checkphone.className = "error";
+        } else if (!/^\d{10}$/.test(phone)) {
+            checkphone.innerText = "Số điện thoại không hợp lệ";
+            checkphone.className = "error";
+        } else {
+            checkphone.innerText = "Số điện thoại hợp lệ";
+            checkphone.className = "success";
+        }
+    }
+    </script>
+
+  <button onclick="checkBoth()">Kiểm tra</button>
+</body>
+</html>
