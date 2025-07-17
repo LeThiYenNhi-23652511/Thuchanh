@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .error{color:red;}
+    .success{color:green;}
+</style>
+<body>
+    <input type="text" id="numberInput" placeholder="Nhập số">
+    <button onclick="checkNumber()">check</button>
+    <p id="check"></p>
+    <script>
+        function checkNumber() {
+          var input = document.getElementById("numberInput").value;
+          var check = document.getElementById("check");
+
+        if (input === "") {
+          check.innerText = "Vui lòng nhập";
+          check.className = "error";
+        } else if (isNaN(input)) {
+          check.innerText = "Không phải số";
+          check.className = "error";
+    
+       } else {
+        check.innerText = "Là số hợp lệ";
+          check.className = "success";
+      }
+}
+
+    </script>
+
+</body>
+</html>
