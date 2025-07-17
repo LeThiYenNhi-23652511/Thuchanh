@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .error{color:red;}
+    .success{color:green;}
+</style>
+<body>
+    <input type="text" id="phoneInput" placeholder="Nhập số điện thoại...">
+    <button onclick="checkPhone()">Check</button>
+    <p id="Check"></p>
+    <script>
+        function checkPhone() {
+          var phone = document.getElementById("phoneInput").value;
+          var check = document.getElementById("Check");
+
+      if (phone === "") {
+        check.innerText = "Vui lòng nhập";
+        check.className = "error";
+      } else if (!/^\d{10}$/.test(phone)) {
+        check.innerText = "Số điện thoại không hợp lệ";
+        check.className = "error";
+      } else {
+        check.innerText = "Số điện thoại hợp lệ";
+        check.className = "success";
+      }
+    }
+    </script>
+</body>
+</html>
